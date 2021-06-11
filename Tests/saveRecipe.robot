@@ -16,7 +16,7 @@ Begin Web Test
     Open Browser                        about:black     ${BROWSER}
     Maximize Browser Window
     Go to                               ${URL}
-    sleep                                2
+    sleep                                3
     Page should contain                 ${element}
 #  TEST 1----------------------------------------------------------------------------
 User is on the Matglad page
@@ -29,30 +29,33 @@ Menu page opened
 #GHERKIN TEST 2------------------------------------------------------------------------------
 User is on the Weekly menu page
     User is on the Matglad page
-    sleep                       1
-    click element               xpath://*[@id="planner-view-container"]/div/div[3]/div[1]/div[1]/div[1]/h3
+    sleep                       3
+    Page should contain                 ${menu}
+    click image               xpath://*[@id="next-week"]/img
+    sleep                        3
+    click element               xpath://*[@id="planner-view-container"]/div/div[4]/div[1]/div[1]/div[1]/h3
 Choose recipe page is opened
     wait until page contains element    xpath://*[@id="title"]/h1
     Page should contain                 ${title}
 # TEST 3-----------------------------------------------------------------------------
 User is on the choose recipes page
    User is on the Matglad page
-    sleep                       1
+    sleep                       3
     page should contain          ${menu}
     click image               xpath://*[@id="next-week"]/img
-    sleep                        2
+    sleep                        3
     click element               xpath://*[@id="planner-view-container"]/div/div[4]/div[1]/div[1]/div[1]/h3
-    sleep                        2
+    sleep                        5
     Page should contain         ${title}
     click element                xpath://*[@id="choose-buttons"]/div[1]/h3
     click image                 ${Image}
 User saves the recipes
-   sleep                        2
+   sleep                        3
    click image                  xpath://*[@id="collection-wrapper"]/div/collection-view/ul/li[1]/a/div/img
-   sleep                        2
+   sleep                       3
    click image                xpath://*[@id="small-footer"]/img
    page should contain image    xpath://*[@id="planner-view-container"]/div/div[3]/div[2]/img
-   sleep                        2
+   sleep                        3
 
 End Web Test
     Close Browser
